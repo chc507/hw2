@@ -61,7 +61,7 @@ public class GlobeSortClient {
         elapsedTime = stopTime - startTime;
         System.out.println("The run time for sorting in server is " + response);
         System.out.println("The run time for application is " + elapsedTime);
-        System.out.println("The run time for one-time is " + (elapsedTime - response[0]) / 2);        
+        System.out.println("The run time for one-time is " + (elapsedTime - response) / 2);        
         System.out.println("Sorted array");
     }
 
