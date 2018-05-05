@@ -84,7 +84,7 @@ public class GlobeSortServer {
         }
 
         @Override
-        public void sortIntegers(IntArray req, final StreamObserver<Long> responseObserver) {
+        public void sortIntegers(IntArray req, final StreamObserver<IntArray> responseObserver) {
             //long startTime = System.nanoTime();
             Integer[] values = req.getValuesList().toArray(new Integer[req.getValuesList().size()]);
             long startTime = System.nanoTime();
@@ -92,14 +92,19 @@ public class GlobeSortServer {
             long endTime = System.nanoTime();
             long elapsedTime = endTime - startTime;
             IntArray.Builder responseBuilder = IntArray.newBuilder();
+            /*
             for(Integer val : values) {
                 responseBuilder.addValues(val);
             }
+            */
+            responseBuilder.addValues((int)elapsedTime);
+            /*
+                https://github.com/chc507/hw2.git
+            */
 
-            //IntArray response = responseBuilder.build();
-            
-            //responseObserver.onNext(response);
-            responseObserver.onNext(elapsedTime);            
+            IntArray response = responseBuilder.build();
+            responseObserver.onNext(response);
+            //responseObserver.onNext(elapsedTime);            
             responseObserver.onCompleted();
             //long endTime = System.nanoTime();
             //long elapsedTime = endTime - startTime;

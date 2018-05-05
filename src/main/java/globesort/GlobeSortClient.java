@@ -43,7 +43,8 @@ public class GlobeSortClient {
         long startTime = System.nanoTime();
         serverStub.ping(Empty.newBuilder().build());
         long stopTime = System.nanoTime();
-        System.out.println("The run time for ping is "+ (stopTime - startTime));
+        long elapsedTime = stopTime - startTime;
+        System.out.println("The run time for ping() is "+ elapsedTime);
         System.out.println("Ping successful.");
 
         System.out.println("Requesting server to sort array");
@@ -55,9 +56,11 @@ public class GlobeSortClient {
         */
         startTime = System.nanoTime();
         //IntArray response = serverStub.sortIntegers(request);
-        long response = serverStub.sortIntegers(request);
+        IntArray response = serverStub.sortIntegers(request);
         stopTime = System.nanoTime();
-        System.out.println("The run time for application is " + response);
+        elapsedTime = stopTime - startTime;
+        System.out.println("The run time for sorting in server is " + response.getInt(0));
+        System.out.println("The run time for application is " + elapsedTime);
         System.out.println("The run time for one-time is "+ (stopTime - startTime));        
         System.out.println("Sorted array");
     }
