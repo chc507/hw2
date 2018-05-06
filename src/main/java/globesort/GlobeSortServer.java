@@ -89,10 +89,10 @@ public class GlobeSortServer {
             Integer[] values = req.getValuesList().toArray(new Integer[req.getValuesList().size()]);
             long startTime = System.nanoTime();
             Arrays.sort(values);
-            long endTime = System.nanoTime();
-            long elapsedTime = endTime - startTime;
+            Long endTime = System.nanoTime();
+            Long elapsedTime = endTime - startTime;
             System.out.println("With Long " + elapsedTime);
-            System.out.println("With Int " + (int)elapsedTime);
+            System.out.println("With Int " + elapsedTime.intValue());
             
             IntArray.Builder responseBuilder = IntArray.newBuilder();
             /*
@@ -100,7 +100,7 @@ public class GlobeSortServer {
                 responseBuilder.addValues(val);
             }
             */
-            responseBuilder.addValues((int)elapsedTime);
+            responseBuilder.addValues((elapsedTime.intValue());
             /*
                 https://github.com/chc507/hw2.git
             */
