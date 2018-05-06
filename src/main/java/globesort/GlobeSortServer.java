@@ -88,17 +88,15 @@ public class GlobeSortServer {
         public void sortIntegers(IntArray req, final StreamObserver<IntArray> responseObserver) {
             //long startTime = System.nanoTime();
             Integer[] values = req.getValuesList().toArray(new Integer[req.getValuesList().size()]);
-            double exp =  Math.pow(10, 3);
-            long startTime = System.nanoTime();
+            long startTime = System.currentTimeMillis();
             Arrays.sort(values);
-            Long endTime = System.nanoTime();
+            Long endTime = System.currentTimeMillis();
             Long elapsedTime = endTime - startTime;
             elapsedTime /= (long)exp;
             System.out.println("With Long " + elapsedTime);
             System.out.println("With Int " + elapsedTime.intValue());
             //System.out.println("With Int " + toIntExact(elapsedTime));            
             IntArray.Builder responseBuilder = IntArray.newBuilder();
-            
             /*
             for(Integer val : values) {
                 responseBuilder.addValues(val);
