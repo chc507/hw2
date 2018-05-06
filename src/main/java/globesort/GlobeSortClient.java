@@ -44,7 +44,7 @@ public class GlobeSortClient {
         serverStub.ping(Empty.newBuilder().build());
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("The run time for ping() is "+ elapsedTime);
+        System.out.println("The run time for ping() is "+ (float)elapsedTime/1000);
         System.out.println("Ping successful.");
 
         System.out.println("Requesting server to sort array");
@@ -63,8 +63,8 @@ public class GlobeSortClient {
         
         int size = values.length;
         int exp = 1000;
-        System.out.println("The run time for sorting in server is " + responseVal[0] / exp + " s.");
-        System.out.println("The run time for application is " + elapsedTime / exp + " s.");
+        System.out.println("The run time for sorting in server is " + responseVal[0] /(double) exp + " s.");
+        System.out.println("The run time for application is " + elapsedTime/(double)exp + " s.");
         System.out.println("The throughput for application is " + size * exp /(double)elapsedTime);
         System.out.println("The run time for one-time Network is " + (elapsedTime - responseVal[0])  / (double)(2 * exp)); 
         System.out.println("The throughput for one-time Network is " + size * 2 * exp /(double) (elapsedTime - responseVal[0]));         
