@@ -88,7 +88,7 @@ public class GlobeSortServer {
         public void sortIntegers(IntArray req, final StreamObserver<IntArray> responseObserver) {
             //long startTime = System.nanoTime();
             Integer[] values = req.getValuesList().toArray(new Integer[req.getValuesList().size()]);
-            double exp =  Math.pow(10, 9);
+            double exp =  Math.pow(10, 3);
             long startTime = System.nanoTime();
             Arrays.sort(values);
             Long endTime = System.nanoTime();
