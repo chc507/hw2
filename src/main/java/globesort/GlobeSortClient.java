@@ -40,11 +40,9 @@ public class GlobeSortClient {
 
     public void run(Integer[] values) throws Exception {
         System.out.println("Pinging " + serverStr + "...");
-        double exp =  Math.pow(10, 6);
-        long expX = (long)Math.pow(10,9);
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         serverStub.ping(Empty.newBuilder().build());
-        long stopTime = System.nanoTime();
+        long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
         System.out.println("The run time for ping() is "+ elapsedTime/expX);
         System.out.println("Ping successful.");
@@ -56,20 +54,20 @@ public class GlobeSortClient {
         /*
         ec2-18-231-17-239.sa-east-1.compute.amazonaws.com
         */
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
         //IntArray response = serverStub.sortIntegers(request);
         IntArray response = serverStub.sortIntegers(request);
-        stopTime = System.nanoTime();
+        stopTime = System.currentTimeMillis();
         elapsedTime = stopTime - startTime;
         Integer[] responseVal  = response.getValuesList().toArray(new Integer[response.getValuesList().size()]);
         
-        elapsedTime /= exp;
         int size = values.length;
-        System.out.println("The run time for sorting in server is " + responseVal[0]/exp + " s.");
-        System.out.println("The run time for application is " + elapsedTime + " s.");
-        System.out.println("The throughput for application is " + size /(double)elapsedTime);
-        System.out.println("The run time for one-time Network is " + (elapsedTime - responseVal[0]/exp) / (double)(2)); 
-        System.out.println("The throughput for one-time Network is " + size * 2 * exp /(double) (elapsedTime - responseVal[0]/exp));         
+        int exp = 1000;
+        System.out.println("The run time for sorting in server is " + responseVal[0] / exp + " s.");
+        System.out.println("The run time for application is " + elapsedTime / exp + " s.");
+        System.out.println("The throughput for application is " + size * exp /(double)elapsedTime);
+        System.out.println("The run time for one-time Network is " + (elapsedTime - responseVal[0])  / (double)(2 * exp)); 
+        System.out.println("The throughput for one-time Network is " + size * 2 * exp /(double) (elapsedTime - responseVal[0]));         
         System.out.println("Sorted array");
     }
 
