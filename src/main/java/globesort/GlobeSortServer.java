@@ -92,7 +92,6 @@ public class GlobeSortServer {
             Arrays.sort(values);
             Long endTime = System.currentTimeMillis();
             Long elapsedTime = endTime - startTime;
-            elapsedTime /= (long)exp;
             System.out.println("With Long " + elapsedTime);
             System.out.println("With Int " + elapsedTime.intValue());
             //System.out.println("With Int " + toIntExact(elapsedTime));            

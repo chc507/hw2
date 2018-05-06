@@ -44,7 +44,7 @@ public class GlobeSortClient {
         serverStub.ping(Empty.newBuilder().build());
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
-        System.out.println("The run time for ping() is "+ elapsedTime/expX);
+        System.out.println("The run time for ping() is "+ elapsedTime);
         System.out.println("Ping successful.");
 
         System.out.println("Requesting server to sort array");
