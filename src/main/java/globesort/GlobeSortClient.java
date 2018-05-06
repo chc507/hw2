@@ -40,9 +40,9 @@ public class GlobeSortClient {
 
     public void run(Integer[] values) throws Exception {
         System.out.println("Pinging " + serverStr + "...");
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         serverStub.ping(Empty.newBuilder().build());
-        long stopTime = System.currentTimeMillis();
+        long stopTime = System.nanoTime();
         long elapsedTime = stopTime - startTime;
         System.out.println("The run time for ping() is "+ elapsedTime);
         System.out.println("Ping successful.");
@@ -54,10 +54,10 @@ public class GlobeSortClient {
         /*
         ec2-18-231-17-239.sa-east-1.compute.amazonaws.com
         */
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         //IntArray response = serverStub.sortIntegers(request);
         IntArray response = serverStub.sortIntegers(request);
-        stopTime = System.currentTimeMillis();
+        stopTime = System.nanoTime();
         Integer[] responseVal  = response.getValuesList().toArray(new Integer[response.getValuesList().size()]);
         
         elapsedTime = stopTime - startTime;
