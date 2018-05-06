@@ -105,7 +105,7 @@ public class GlobeSortServer {
             }
             */
             //responseBuilder.addValues(toIntExact(elapsedTime));
-            responseBuilder.addValues(elapsedTime.intValue();            
+            responseBuilder.addValues(elapsedTime.intValue());            
             /*
                 https://github.com/chc507/hw2.git
             */
