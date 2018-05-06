@@ -41,7 +41,7 @@ public class GlobeSortClient {
     public void run(Integer[] values) throws Exception {
         System.out.println("Pinging " + serverStr + "...");
         double exp =  Math.pow(10, 6);
-        long expX = Math.pow(10,9);
+        long expX = (long)Math.pow(10,9);
         long startTime = System.nanoTime();
         serverStub.ping(Empty.newBuilder().build());
         long stopTime = System.nanoTime();
