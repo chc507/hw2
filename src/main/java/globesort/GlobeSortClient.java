@@ -57,8 +57,9 @@ public class GlobeSortClient {
         startTime = System.nanoTime();
         //IntArray response = serverStub.sortIntegers(request);
         IntArray response = serverStub.sortIntegers(request);
-        Integer[] responseVal  = response.getValuesList().toArray(new Integer[response.getValuesList().size()]);
         stopTime = System.nanoTime();
+        Integer[] responseVal  = response.getValuesList().toArray(new Integer[response.getValuesList().size()]);
+        
         elapsedTime = stopTime - startTime;
         System.out.println("The run time for sorting in server is " + responseVal[0]);
         System.out.println("The run time for application is " + elapsedTime);

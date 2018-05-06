@@ -91,6 +91,9 @@ public class GlobeSortServer {
             Arrays.sort(values);
             long endTime = System.nanoTime();
             long elapsedTime = endTime - startTime;
+            System.out.println("With Long " + elapsedTime);
+            System.out.println("With Int " + (int)elapsedTime);
+            
             IntArray.Builder responseBuilder = IntArray.newBuilder();
             /*
             for(Integer val : values) {
