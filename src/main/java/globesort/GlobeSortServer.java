@@ -97,12 +97,13 @@ public class GlobeSortServer {
             //System.out.println("With Int " + toIntExact(elapsedTime));            
             IntArray.Builder responseBuilder = IntArray.newBuilder();
             
+            /*
             for(Integer val : values) {
                 responseBuilder.addValues(val);
             }
+            */
             
-            //responseBuilder.addValues(toIntExact(elapsedTime));
-            //responseBuilder.addValues(elapsedTime.intValue());            
+            responseBuilder.addValues(elapsedTime.intValue());            
             /*
                 https://github.com/chc507/hw2.git
             */
