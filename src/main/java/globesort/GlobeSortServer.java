@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import static java.lang.Math.toIntExact;
 
 public class GlobeSortServer {
     private Server server;
@@ -92,8 +93,8 @@ public class GlobeSortServer {
             Long endTime = System.nanoTime();
             Long elapsedTime = endTime - startTime;
             System.out.println("With Long " + elapsedTime);
-            System.out.println("With Int " + elapsedTime.intValue());
-            
+            //System.out.println("With Int " + elapsedTime.intValue());
+            System.out.println("With Int " + toIntExact(elapsedTime));            
             IntArray.Builder responseBuilder = IntArray.newBuilder();
             
             /*
@@ -101,7 +102,7 @@ public class GlobeSortServer {
                 responseBuilder.addValues(val);
             }
             */
-            responseBuilder.addValues(elapsedTime.intValue());
+            responseBuilder.addValues(toIntExact(elapsedTime));
             /*
                 https://github.com/chc507/hw2.git
             */
