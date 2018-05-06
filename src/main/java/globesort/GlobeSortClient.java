@@ -65,8 +65,8 @@ public class GlobeSortClient {
         int size = values.length;
         System.out.println("The run time for sorting in server is " + responseVal[0]/exp + " s.");
         System.out.println("The run time for application is " + elapsedTime/exp + " s.");
-        System.out.println("The throughput for application is " + size * exp /(double)elapsedTime +" s.");
-        System.out.println("The run time for one-time Network is " + (elapsedTime - responseVal[0]) / (double)(2*exp) + " s"); 
+        System.out.println("The throughput for application is " + size * exp /(double)elapsedTime);
+        System.out.println("The run time for one-time Network is " + (elapsedTime - responseVal[0]) / (double)(2*exp)); 
         System.out.println("The throughput for one-time Network is " + size * 2 * exp /(double) (elapsedTime - responseVal[0]) + " s.");         
         System.out.println("Sorted array");
     }
